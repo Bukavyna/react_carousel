@@ -29,10 +29,6 @@
   transition: background 0.3s ease;
   cursor: pointer;
 
-  &.disabled {
-    background-color: red;
-  }
-
   &.green-theme {
     background-color: #2ecc71;
     color: white;
@@ -40,5 +36,10 @@
 
   &:hover:not(.disabled) {
     background-color: green;
+  }
+
+  &.disabled {
+    background-color: red;
+    cursor: not-allowed;
   }
 }

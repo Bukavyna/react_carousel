@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, { useRef, useState } from 'react';
 import './Carousel.scss';
 
 // Інтерфейс для типізації пропсів
@@ -14,14 +14,14 @@ interface CarouselProps {
 
 // Функціональний компонент Carousel, що приймає пропси
 const Carousel: React.FC<CarouselProps> = ({
-                                             images,
-                                             itemWidth,
-                                             frameSize,
-                                             step,
-                                             animationDuration,
-                                             infinite,
-                                             theme
-                                           }) => {
+  images,
+  itemWidth,
+  frameSize,
+  step,
+  animationDuration,
+  infinite,
+  theme,
+}) => {
   // Стан для відстеження поточного індексу першого видимого елемента
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -57,10 +57,10 @@ const Carousel: React.FC<CarouselProps> = ({
     }
   };
 
-
   // Обробник для кліка по кнопці "Вперед"
   const handleNextClick = () => {
     const newIndex = currentIndex + step;
+
     if (infinite && newIndex > maxIndex) {
       setCurrentIndex(0); // Нескінченна прокрутка: перехід на початок
     } else if (newIndex <= maxIndex) {
@@ -73,6 +73,7 @@ const Carousel: React.FC<CarouselProps> = ({
   // Обробник для кліка по кнопці "Назад"
   const handlePrevClick = () => {
     const newIndex = currentIndex - step;
+
     if (infinite && newIndex < 0) {
       setCurrentIndex(maxIndex); // Нескінченна прокрутка: перехід в кінець
     } else if (newIndex >= 0) {
@@ -96,6 +97,7 @@ const Carousel: React.FC<CarouselProps> = ({
     }
 
     const diffX = getPosition(e) - startX;
+
     setCurrentX(getPosition(e));
 
     // Просто використовуємо перевірку if (listRef.current)
@@ -116,6 +118,7 @@ const Carousel: React.FC<CarouselProps> = ({
         handlePrevClick(); // Гортаємо назад
       }
     }
+
     setTransitionStyle(animationDuration); // Повертаємо анімацію
   };
 
@@ -142,12 +145,8 @@ const Carousel: React.FC<CarouselProps> = ({
         ←
       </button>
 
-       {/*Контейнер каруселі з динамічною шириною та обробниками подій*/}
-      <div
-        className="Carousel"
-        style={{ width: `${containerWidth}px` }}
-      >
-
+      {/*Контейнер каруселі з динамічною шириною та обробниками подій*/}
+      <div className="Carousel" style={{ width: `${containerWidth}px` }}>
         <ul
           ref={listRef} // Призначаємо реф для доступу
           className="Carousel__list"

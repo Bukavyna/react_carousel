@@ -13,10 +13,7 @@ import img8 from './images/img_8.png';
 import img9 from './images/img_9.png';
 import img10 from './images/img_10.png';
 
-const images = [
-  img1, img2, img3, img4, img5,
-  img6, img7, img8, img9, img10,
-];
+const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
 
 const App: React.FC = () => {
   const [itemWidth, setItemWidth] = useState(130);
@@ -26,7 +23,9 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <h1 className="title" data-cy="title">Carousel</h1>
+      <h1 className="title" data-cy="title">
+        Carousel
+      </h1>
 
       <div className="settings">
         <h2 className="h2">Налаштування каруселі</h2>
@@ -35,7 +34,7 @@ const App: React.FC = () => {
           <input
             type="number"
             value={itemWidth}
-            onChange={(e) => setItemWidth(+e.target.value)}
+            onChange={e => setItemWidth(+e.target.value)}
           />
         </label>
         <label>
@@ -43,7 +42,7 @@ const App: React.FC = () => {
           <input
             type="number"
             value={frameSize}
-            onChange={(e) => setFrameSize(+e.target.value)}
+            onChange={e => setFrameSize(+e.target.value)}
           />
         </label>
         <label>
@@ -51,7 +50,7 @@ const App: React.FC = () => {
           <input
             type="number"
             value={step}
-            onChange={(e) => setStep(+e.target.value)}
+            onChange={e => setStep(+e.target.value)}
           />
         </label>
         <label>
@@ -59,7 +58,7 @@ const App: React.FC = () => {
           <input
             type="number"
             value={animationDuration}
-            onChange={(e) => setAnimationDuration(+e.target.value)}
+            onChange={e => setAnimationDuration(+e.target.value)}
           />
         </label>
       </div>
@@ -71,10 +70,10 @@ const App: React.FC = () => {
         step={step}
         animationDuration={animationDuration}
         infinite={false}
-
+        theme={'green'}
       />
     </div>
   );
-}
+};
 
 export default App;
